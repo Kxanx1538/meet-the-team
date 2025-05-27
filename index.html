@@ -5,79 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Our Amazing Team</title>
+    <title>Our Moving Team Carousel (50% Width)</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-      /* Custom styles for the team carousel */
-      .team-carousel .carousel-item {
-        display: flex;
-        justify-content: center; /* Center the card horizontally */
-        align-items: center;     /* Center the card vertically */
-        padding: 50px 0;         /* Add vertical padding */
-        min-height: 500px;       /* Ensure enough height for content */
+      /* Container for the scrolling cards - Adjusted to 50% width */
+      .team-marquee {
+        width: 50%; /* Set to 50% as requested */
+        padding: 40px 0;
+        margin: 0 auto; /* Centers the 50% width container */
+        overflow-x: hidden; /* Hide cards that go out of the container */
+        background-color: #f8f9fa; /* Light background for visibility */
+        white-space: nowrap; /* Keep cards in a single line */
+        border: 1px solid #ddd; /* Optional: add a border to see the 50% width */
+        border-radius: 8px; /* Optional: subtle rounded corners for the container */
       }
 
-      .team-card {
-        width: 20rem; /* Slightly wider card for team info */
+      /* Wrapper to hold the cards and create the scrolling effect */
+      .team-scroll {
+        display: flex; /* Arrange cards horizontally */
+        animation: scroll-team-cards 25s linear infinite; /* Continuous scrolling animation */
+        /* Adjust duration (e.g., 25s) based on number of cards and desired speed */
+      }
+
+      /* Individual team card styling */
+      .team-card-wrapper {
+        flex-shrink: 0; /* Prevent cards from shrinking */
+        width: 20rem; /* Fixed width for the card */
+        margin-right: 40px; /* Space between cards */
         box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
         border-radius: 10px; /* Slightly rounded corners */
         overflow: hidden; /* Ensures image corners match card */
+        display: inline-block; /* Essential for flex-shrink to work well with margin */
       }
 
-      .team-card .card-img-top {
-        height: 250px; /* Fixed height for consistent image size */
+      .team-card-wrapper .card-img-top {
+        height: 220px; /* Fixed height for consistent image size */
         object-fit: cover; /* Ensures images cover the area without distortion */
         border-bottom: 1px solid #eee; /* Separator for image */
       }
 
-      .team-card .card-body {
+      .team-card-wrapper .card-body {
         text-align: center; /* Center text within the card */
       }
 
-      .team-card .card-title {
+      .team-card-wrapper .card-title {
         margin-bottom: 0.25rem;
         font-size: 1.5rem;
         color: #333;
       }
 
-      .team-card .card-subtitle {
+      .team-card-wrapper .card-subtitle {
         font-size: 1rem;
         color: #666;
         margin-bottom: 1rem;
       }
 
-      .team-card .card-text {
+      .team-card-wrapper .card-text {
         font-size: 0.95rem;
         color: #555;
       }
 
-      /* Social media icons */
+      /* Social media icons 
       .social-links {
         margin-top: 15px;
       }
 
       .social-links a {
-        color: #007bff; /* Bootstrap primary blue */
+        color: #007bff; /* Bootstrap primary blue 
         font-size: 1.5rem;
         margin: 0 8px;
         transition: color 0.3s ease;
       }
 
       .social-links a:hover {
-        color: #0056b3; /* Darker blue on hover */
+        color: #0056b3; /* Darker blue on hover 
+      } */
+
+      /* Keyframes for the scrolling effect */
+      @keyframes scroll-team-cards {
+        from {
+          transform: translateX(0%); /* Start from the right */
+        }
+        to {
+          transform: translateX(-140%); /* Scroll exactly half the content width for seamless loop */
+        }
       }
 
-      /* Customizing carousel controls for better visibility */
-      .carousel-control-prev,
-      .carousel-control-next {
-        width: 5%; /* Make controls narrower */
-        background-color: rgba(0,0,0,0.1); /* Semi-transparent background */
-        border-radius: 5px;
-      }
+      /* --- Responsive adjustments for smaller screens --- */
+      @media (max-width: 768px) {
+        .team-marquee {
+          width: 95%; /* Make it wider on smaller screens to allow more space */
+          padding: 20px 0;
+        }
 
-      .carousel-control-prev-icon,
-      .carousel-control-next-icon {
-        filter: invert(1); /* Make icons white for better contrast */
+        .team-card-wrapper {
+          width: 18rem; /* Slightly smaller cards on mobile */
+          margin-right: 20px; /* Reduce space between cards */
+        }
+
+        .team-card-wrapper .card-img-top {
+          height: 180px; /* Adjust image height */
+        }
+
+        .team-card-wrapper .card-title {
+          font-size: 1.3rem;
+        }
+
+        .team-card-wrapper .card-subtitle {
+          font-size: 0.9rem;
+        }
+
+        .team-card-wrapper .card-text {
+          font-size: 0.85rem;
+        }
       }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -85,69 +125,80 @@
 
   <body class="p-3 m-0 border-0 bd-example m-0 border-0 bg-light">
 
-    <div class="container my-5">
+    <div class="container-fluid my-5">
       <h2 class="text-center mb-5 display-4">Meet Our Amazing Team</h2>
 
-      <div id="teamCarousel" class="carousel slide team-carousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-
-          <div class="carousel-item active">
-            <div class="card team-card">
-              <img src="images/6.png" class="card-img-top" alt="John Doe Profile">
-              <div class="card-body">
-                <h5 class="card-title">John Doe</h5>
-                <h6 class="card-subtitle mb-2 text-muted">CEO & Founder</h6>
-                <p class="card-text">John leads our vision with unparalleled expertise and a passion for innovation. He's the driving force behind our company's success.</p>
-                <div class="social-links">
-                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
-                  <a href="#" aria-label="Website"><i class="fas fa-globe"></i></a>
-                </div>
-              </div>
+      <div class="team-marquee">
+        <div class="team-scroll" id="teamMarqueeScroll">
+          <div class="card team-card-wrapper">
+            <img src="images/Co-founder&CEO.png" class="card-img-top" alt="Founder A Profile">
+            <div class="card-body">
+              <h5 class="card-title">Alice Johnson</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Co-Founder & CEO</h6>
+              <p class="card-text">Alice leads with vision, setting our strategic direction and driving innovation.</p>
+             <!-- <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+              </div> -->
             </div>
           </div>
-
-          <div class="carousel-item">
-            <div class="card team-card">
-              <img src="images/6.png" class="card-img-top" alt="Jane Smith Profile">
-              <div class="card-body">
-                <h5 class="card-title">Jane Smith</h5>
-                <h6 class="card-subtitle mb-2 text-muted">IT</h6>
-                <p class="card-text">Jane is a coding wizard, transforming complex ideas into elegant solutions. Her dedication ensures our products are top-notch.</p>
-                <div class="social-links">
-                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                  <a href="#" aria-label="GitHub"><i class="fab fa-github-square"></i></a>
-                </div>
-              </div>
+          <div class="card team-card-wrapper">
+            <img src="images/Co-Founder&CEO01.png" class="card-img-top" alt="Founder B Profile">
+            <div class="card-body">
+              <h5 class="card-title">Bob Williams</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Co-Founder & CTO</h6>
+              <p class="card-text">Bob engineers robust solutions, ensuring our technology is cutting-edge and reliable.</p>
+              <!--<div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github-square"></i></a>
+              </div> -->
             </div>
           </div>
-
-          <div class="carousel-item">
-            <div class="card team-card">
-              <img src="images/7.png" class="card-img-top" alt="David Lee Profile">
-              <div class="card-body">
-                <h5 class="card-title">David Lee</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Marketing Director</h6>
-                <p class="card-text">David crafts compelling stories that connect us with our audience. His strategies are key to our growth and brand presence.</p>
-                <div class="social-links">
-                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
-                </div>
-              </div>
+          <div class="card team-card-wrapper">
+            <img src="images/HeadofHR.png" class="card-img-top" alt="HR Lead Profile">
+            <div class="card-body">
+              <h5 class="card-title">Carol White</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Head of People & Culture</h6>
+              <p class="card-text">Carol fosters a positive environment, ensuring our team thrives and grows together.</p>
+              <!--<div class="social-links"> 
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div> -->
             </div>
           </div>
-
+          <div class="card team-card-wrapper">
+            <img src="images/2.png" class="card-img-top" alt="IT Manager Profile">
+            <div class="card-body">
+              <h5 class="card-title">David Green</h5>
+              <h6 class="card-subtitle mb-2 text-muted">IT Systems Manager</h6>
+              <p class="card-text">David ensures our systems run smoothly, keeping us connected and secure.</p>
+              <!--<div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              </div> -->
+            </div>
           </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#teamCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#teamCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+          <div class="card team-card-wrapper">
+            <img src="images/HeadofMarketing.png" class="card-img-top" alt="Marketing Lead Profile">
+            <div class="card-body">
+              <h5 class="card-title">Eve Davis</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Marketing Director</h6>
+              <p class="card-text">Eve champions our brand, creating engaging campaigns that reach our audience.</p>
+              <!--<div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+              </div> -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <script>
+      const teamMarqueeScroll = document.getElementById('teamMarqueeScroll');
+
+      // IMPORTANT: Duplicate the existing innerHTML to create the seamless loop
+      // This ensures that as the first set of cards scrolls out, the second set
+      // is already appearing, creating the continuous motion.
+      teamMarqueeScroll.innerHTML += teamMarqueeScroll.innerHTML;
+    </script>
   </body>
 </html>
