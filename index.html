@@ -62,11 +62,13 @@
         font-size: 1rem;
         color: #666;
         margin-bottom: 1rem;
+        word-break: break-all; /* Ensure long words break to fit */
       }
 
       .team-card-wrapper .card-text {
         font-size: 0.95rem;
         color: #555;
+        margin-block-end: 1rem; /* Space at the end of the text */
       }
 
       /* Social media icons 
@@ -141,7 +143,7 @@
             <div class="card-body">
               <h5 class="card-title">Alice Johnson</h5>
               <h6 class="card-subtitle mb-2 text-muted">Co-Founder</h6>
-              <p class="card-text">Alice leads with vision, setting our strategic direction and driving innovation.</p>
+              <p class="card-text">Alice is a visionary leader, setting our strategic direction and driving innovation across all departments. Her dedication ensures our company's sustainable growth and success.</p>
              <!-- <div class="social-links">
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
@@ -165,7 +167,7 @@
             <div class="card-body">
               <h5 class="card-title">Jordan Ellis</h5>
               <h6 class="card-subtitle mb-2 text-muted">People & Culture</h6>
-              <p class="card-text">Jordan fosters a positive environment, ensuring our team thrives and grows together.</p>
+              <p class="card-text">Jordan fosters a vibrant and inclusive work environment, ensuring our team members feel valued, supported, and empowered to do their best work every day.</p>
               <!--<div class="social-links"> 
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
               </div> -->
@@ -185,9 +187,9 @@
           <div class="card team-card-wrapper">
             <img src="images/HeadofMarketing.png" class="card-img-top" alt="Marketing Lead Profile">
             <div class="card-body">
-              <h5 class="card-title">Eve Davis</h5>
+              <h5 class="card-title">David Green</h5>
               <h6 class="card-subtitle mb-2 text-muted">Marketing</h6>
-              <p class="card-text">Eve champions our brand, creating engaging campaigns that reach our audience.</p>
+              <p class="card-text">Eve champions our brand with innovative strategies, crafting compelling narratives and engaging campaigns that truly resonate with our audience.</p>
               <!--<div class="social-links">
                 <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
@@ -197,7 +199,7 @@
         </div>
       </div>
     </div>
-
+    
     <script>
       const teamMarqueeScroll = document.getElementById('teamMarqueeScroll');
 
